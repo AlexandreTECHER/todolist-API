@@ -11,6 +11,12 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->get('/', function (){
+    return 'Hello World !';
+});
+
+$router->get('/toto', function(){
+    return view('toto', [
+        'date' => date('m-d-Y H:i:s')
+    ]);
 });
