@@ -11,12 +11,17 @@
 |
 */
 
-$router->get('/', function (){
+$router->get('/', function () {
     return 'Hello World !';
 });
 
-$router->get('/toto', function(){
-    return view('toto', [
-        'date' => date('m-d-Y H:i:s')
-    ]);
-});
+$router->get('/toto', [
+    'uses' => 'MainController@toto',
+    'as' => 'toto'
+    ]
+);
+
+$router->get('/categories', [
+    'uses' => 'CategoryController@list',
+    'as' => 'categories-list'
+]);
